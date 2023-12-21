@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to bootstrap in <head> before all other stylesheets to load all bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <!-- link to fontawesome css -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <!-- link to google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap" rel="stylesheet" />
+    <!-- Link to EDAMAM API -->
+    <!-- Allows you to search and integrate web recipes -->
+    <script src="https://api.edamam.com/api/recipes/v2"></script>
+    <!-- link to reset stylesheet -->
+    <link rel="stylesheet" href="./assets/reset.css">
+    <!-- Link to stylesheet -->
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>Food Picker</title>
+</head>
+
+<body>
+    <main>
+        <div class="Main Container">
+            <h1>Food Picker</h1>
+            <p>Food Picker description</p>
+            <hr>
+            <ul id="answers">
+                <li>
+                    <button id="answer1btn"></button>                    
+                </li>
+                <li>
+                    <button id="answer2btn"></button>                    
+                </li>
+                <li>
+                    <button id="answer3btn"></button>                    
+                </li>
+                <li>
+                    <button id="answer4btn"></button>                    
+                </li>
+            </ul>
+            <hr id="submit-btn-line">            
+        </div>
+        <div id="submit-btn-div">
+            <button id="submit-btn">Start</button>
+        </div>
+    </main>
+    <footer>Quick Pick
+        <h2>Quick Pick</h2>
+        <p id="quick-pick-description">Click here to randomly generate food! Consume!!</p>
+        <button id="quick-pick-btn">Return</button>
+    </footer>
+    <!-- Link to jQuery library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./assets/script.js"></script>
+</body>
+
+</html>
