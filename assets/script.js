@@ -15,3 +15,5 @@ fetch('https://api.edamam.com/api/recipes/v2?type=public&app_id=ea182cd5&app_key
   .then(function (data) {
     console.log(data);
   });
+
+  
