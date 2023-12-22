@@ -59,7 +59,34 @@ const questions = [{
 }
 ];
 startBtn.addEventListener('click', showQuestions);
+var currentQuestionIndex = 0;
+var userScore = 0;
+var questionElement = document.getElementById("question");
+var answerBtns = document.getElementById("answers");
+const nextBtn = document.getElementById("Next-btn");
+
+startBtn.classList.remove('hide');
+
+function startQuiz() {
+    currentQuestionIndex = 0;
+    nextBtn.innerHTML = "Next";
+}
 
 function showQuestions() {
+    var currentQuestion = questions[currentQuestionIndex];
+    var questionNo = currentQuestionIndex + 1;
+    questionElement.innerhtml = questionNo + ". " + currentQuestion.question;
 
+    currentQuestion.answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answerBtns.appendChild(button);
+        button.addEventListener("click", selectAnswer);
+    });
+}
+
+function selectAnswer(e) {
+    const selectedBtn = e.target;
+    nextBtn.style.display = "block";
 }
