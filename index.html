@@ -13,7 +13,8 @@
     <!-- link to google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;1,400&display=swap"
+        rel="stylesheet">
     <!-- link to reset stylesheet -->
     <link rel="stylesheet" href="./assets/reset.css">
     <!-- Link to stylesheet -->
@@ -23,13 +24,17 @@
 
 <body>
     <main>
-        <div class="container-fluid row">
-            <h1 class="col 6 text-start">Foodr</h1>
-            <p class="col text-end text-wrap" >Too many choices to make today?  Let's help you decide what to eat!  
-                Take a short quiz below to see what's on the menu today!  
-                We'll even hook you up with some local spots that'll serve it right up.  
+        <header class="container-fluid row">
+            <h1 class="col 6 text-start">foodr</h1>
+            <p class="col text-end text-wrap">Too many choices to make today? Let's help you decide what to eat!
+                Take a short quiz below to see what's on the menu today!
+                We'll even hook you up with some local spots that'll serve it right up.
                 <br><br>
-                No time?  Need answers NOW?  Try Quick Pick!</p>
+                No time? Need answers NOW? Try Quick Pick!
+            </p>            
+        </header>
+
+        <div class="survey">
             <hr>
             <ul id="answers">
                 <li>
@@ -47,14 +52,16 @@
             </ul>
             <hr id="submit-btn-line">
         </div>
-        <div id="submit-btn-div">
-            <button id="submit-btn">Start</button>
-        </div>
+
+        <button id="submit-btn">Start</button>
+        <button id="Next-btn">Next</button>
+
     </main>
-    <footer>Quick Pick
+    <footer>
         <h2>Quick Pick</h2>
         <p id="quick-pick-description">Click here to randomly generate food! Consume!!</p>
-        <button id="quick-pick-btn">Return</button>
+        <button id="quick-pick-btn">Feed me!</button>
+        <p id="quick-pick-return"></p>
     </footer>
     <!-- Link to jQuery library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
