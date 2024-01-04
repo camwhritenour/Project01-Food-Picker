@@ -25,10 +25,10 @@
         <header class="container-fluid row">
             <h1 class="col 6 text-start">foodr</h1>
             <p class="col text-end text-wrap">Too many choices to make today? Let's help you decide what to eat!
-                Take a short quiz below to see what's on the menu today!
-                We'll even hook you up with some local spots that'll serve it right up.
+                Take a short survey below to see what's on the menu today!
+                We'll help you find a recipe or someone else to make it for you!
                 <br><br>
-                No time? Need answers NOW? Try Quick Pick!
+                No time? Need answers NOW? Try <a href="#quick-pick">Quick Pick!</a>
             </p>            
         </header>
 
@@ -49,22 +49,25 @@
                     <button id="answer4btn"></button>
                 </li>
             </ul>
-            <hr id="submit-btn-line">
+            <!-- <hr id="submit-btn-line"> -->
         </div>
 
         <button id="submit-btn" class="hide">Start</button>
         <button id="Next-btn" class="hide">Next</button>
 
     </main>
-    <footer>
-        <h2>Quick Pick</h2>
+    <footer class="container">
+        <h2 id="quick-pick">Quick Pick</h2>
         <p id="quick-pick-description">Click here to randomly generate food! Consume!!</p>
         <button id="quick-pick-btn">Feed me!</button>
+        <i class="fa-solid fa-pizza-slice"></i>
         <p id="quick-pick-return"></p>
     </footer>
     <!-- Link to jQuery library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./assets/script.js"></script>
+    <!-- Link to font awesome kit -->
+    <script src="https://kit.fontawesome.com/7934d6fff8.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
