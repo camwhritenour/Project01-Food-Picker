@@ -12,3 +12,9 @@ header p {
     font-size: 1.2rem;
 }
 
+body {
+    background-image: url(https://coolwallpapers.me/picsup/3026732-egg_fish_food_japan_maki_rice_salmon_soy_sushi_tuna.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
