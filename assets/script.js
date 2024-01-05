@@ -9,6 +9,7 @@ function getRecipes() {
         console.log(data);
     })
 }
+//getRecipes();
 
   var quizEl = document.querySelector("#quiz");
   var startQuizEl = document.querySelector("#start-quiz");
@@ -29,50 +30,50 @@ function getRecipes() {
               light = ['Nachos', 'Quesadilla', 'Fajitas']
           ],
           Indianfood = [
-              heavy = ['butter-chicken', 'chicken-masala', 'samosa', 'tikka', 'biryani', 'pakora'],
-              light = ['naan']
+              heavy = ['butter-chicken', 'chicken-masala', 'tikka', 'biryani', 'pakora'],
+              light = ['naan', 'samosa']
           ],
           Thaifood = [
-              heavy = ['tom-kha-gai', 'pad-thai', 'khao-pad', 'pad-kra-pao-moo', 'tom-yum-goong', 'panang-curry'],
-              light = []
+              heavy = ['tom-kha-gai', 'pad-thai', 'khao-pad', 'pad-kra-pao-moo'],
+              light = ['panang-curry', 'tom-yum-goong']
           ]],
   
       homestyle = [
           Americanfood = [
-              heavy = ['burgers', 'hot-dog', 'steak', 'wings', 'fried-chicken', 'french-fries'],
-              light = ['salad']
+              heavy = ['burgers', 'steak', 'wings', 'fried-chicken', 'french-fries'],
+              light = ['salad', 'hot-dog']
           ],
           Italianfood = [
-              heavy = ['spaghetti', 'pizza', 'lasagna', 'chicken-parm', 'risotto'],
-              light = ['bruscetta']
+              heavy = ['spaghetti', 'pizza', 'lasagna', 'chicken-parm'],
+              light = ['bruscetta', 'risotto']
           ],
           Jewishfood = [
-              heavy = ['knish', 'creamcheese-lox', 'deli-sammy', 'challah', 'latkes'],
-              light = ['matzo-ball-soup']
+              heavy = ['knish', 'deli-sammy', 'challah', 'latkes'],
+              light = ['matzo-ball-soup', 'creamcheese-lox']
           ]],
 
         asian = [
             Chinesefood = [
-                heavy = ['orange-chicken', 'mongolian-beef', 'lo-mein', 'fried-rice', 'kung-pao-shrimp'],
-                light = ['eggroll']
+                heavy = ['orange-chicken', 'mongolian-beef', 'kung-pao-shrimp'],
+                light = ['eggroll', 'lo-mein', 'fried-rice']
             ],
             Japanesefood = [
                 heavy = ['ramen', 'teriyaki', 'tempura', 'katsudon'],
                 light = ['sushi', 'takoyaki']
             ],
             Vietnamesefood = [
-                heavy = ['pho', 'bahn-mi', 'com-tam', 'bun-cha', 'goi-cuon'],
-                light = ['spring-roll']
+                heavy = ['bahn-mi', 'com-tam', 'bun-cha', 'goi-cuon'],
+                light = ['spring-roll', 'pho']
             ]],
   
       sweet = [
           IceCream = [
-              heavy = ['ice-cream-cake', 'sundae', 'banana-split', 'milkshake', 'mochi'],
-              light = ['ice-cream-cone']
+              heavy = ['ice-cream-cake', 'banana-split', 'milkshake'],
+              light = ['ice-cream-cone', 'sundae', 'mochi']
           ],
           Bakery = [
-              heavy = ['cake', 'donut', 'cookies', 'pie', 'brownies'],
-              light = ['crossiant']
+              heavy = ['cake', 'pie', 'brownies'],
+              light = ['crossiant', 'cookies', 'donut']
           ]]
   ]
   
