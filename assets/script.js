@@ -34,8 +34,8 @@ function getRecipes() {
               light = ['naan', 'samosa']
           ],
           Thaifood = [
-              heavy = ['tom-kha-gai', 'pad-thai', 'khao-pad', 'pad-kra-pao-moo'],
-              light = ['panang-curry', 'tom-yum-goong']
+              heavy = ['pad-thai', 'khao-pad', 'pad-kra-pao-moo'],
+              light = ['panang-curry', 'tom-yum-goong', 'tom-kha-gai']
           ]],
   
       homestyle = [
