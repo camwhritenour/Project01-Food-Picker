@@ -1,5 +1,19 @@
+:root {
+    --txt-color: azure;
+
+}
+
+
 *{
     font-family: 'Poppins', sans-serif;
+}
+
+header, footer {
+    color: var(--txt-color);
+}
+
+#survey-box {
+    color: var(--txt-color);
 }
 
 h1 {

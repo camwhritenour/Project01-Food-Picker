@@ -32,9 +32,9 @@
             </p>            
         </header>
 
-        <div class="survey hide container">
+        <div id="survey-box" class="survey hide container">
             <div class="row">
-              <div class="col card" style="width: 18rem;">
+              <div class="col card bg-transparent border border-white rounded" style="width: 18rem;">
                 <div class="card-body">
                   <p id="question" class="hide card-text">Some quick example to build on the card title and make up the bulk of the card's content.</p>
                   <ul id="answers" class="hide">
@@ -56,14 +56,14 @@
             </div>
           </div>
 
-        <button id="submit-btn" class="hide">Start</button>
-        <button id="Next-btn" class="hide">Next</button>
+        <button id="submit-btn" class="hide btn btn-secondary">Start</button>
+        <button id="Next-btn" class="hide btn btn-secondary">Next</button>
 
     </main>
     <footer class="container">
-        <h2 id="quick-pick">Quick Pick</h2>
+        <h2 id="quick-pick" class="display-4">Quick Pick</h2>
         <p id="quick-pick-description">Click here to randomly generate food! Consume!!</p>
-        <button id="quick-pick-btn">Feed me!</button>
+        <button id="quick-pick-btn" class="btn btn-primary">Feed me!</button>
         <i class="fa-solid fa-pizza-slice"></i>
         <p id="quick-pick-return"></p>
     </footer>
