@@ -2,19 +2,13 @@ var edamamKEY = "d1dff8cbcbfaa0cdfb00112c92e85cf8";
 var edamamID = "ea182cd5";
 var edamamURL = "https://api.edamam.com/api/recipes/v2?type=public&app_id=ea182cd5&app_key=d1dff8cbcbfaa0cdfb00112c92e85cf8";
 
-fetch('https://api.edamam.com/api/recipes/v2?type=public&app_id=ea182cd5&app_key=d1dff8cbcbfaa0cdfb00112c92e85cf8&cuisineType=American', {
-  cache: "reload",
-
-})
-  
-  .then(function (response) {
-    console.log(response.status);
-    return response.json();
-   
-  })
-  .then(function (data) {
-    console.log(data);
-  });
+function getRecipes() {
+    fetch(edamamURL)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    })
+}
 
   var quizEl = document.querySelector("#quiz");
   var startQuizEl = document.querySelector("#start-quiz");
@@ -35,36 +29,50 @@ fetch('https://api.edamam.com/api/recipes/v2?type=public&app_id=ea182cd5&app_key
               light = ['Nachos', 'Quesadilla', 'Fajitas']
           ],
           Indianfood = [
-              heavy = [],
-              light = []
+              heavy = ['butter-chicken', 'chicken-masala', 'samosa', 'tikka', 'biryani', 'pakora'],
+              light = ['naan']
           ],
           Thaifood = [
-              heavy = [],
+              heavy = ['tom-kha-gai', 'pad-thai', 'khao-pad', 'pad-kra-pao-moo', 'tom-yum-goong', 'panang-curry'],
               light = []
           ]],
   
       homestyle = [
           Americanfood = [
-              heavy = [],
-              light = []
+              heavy = ['burgers', 'hot-dog', 'steak', 'wings', 'fried-chicken', 'french-fries'],
+              light = ['salad']
           ],
           Italianfood = [
-              heavy = [],
-              light = []
+              heavy = ['spaghetti', 'pizza', 'lasagna', 'chicken-parm', 'risotto'],
+              light = ['bruscetta']
           ],
           Jewishfood = [
-              heavy = [],
-              light = []
+              heavy = ['knish', 'creamcheese-lox', 'deli-sammy', 'challah', 'latkes'],
+              light = ['matzo-ball-soup']
           ]],
+
+        asian = [
+            Chinesefood = [
+                heavy = ['orange-chicken', 'mongolian-beef', 'lo-mein', 'fried-rice', 'kung-pao-shrimp'],
+                light = ['eggroll']
+            ],
+            Japanesefood = [
+                heavy = ['ramen', 'teriyaki', 'tempura', 'katsudon'],
+                light = ['sushi', 'takoyaki']
+            ],
+            Vietnamesefood = [
+                heavy = ['pho', 'bahn-mi', 'com-tam', 'bun-cha', 'goi-cuon'],
+                light = ['spring-roll']
+            ]],
   
       sweet = [
           IceCream = [
-              heavy = [],
-              light = []
+              heavy = ['ice-cream-cake', 'sundae', 'banana-split', 'milkshake', 'mochi'],
+              light = ['ice-cream-cone']
           ],
           Bakery = [
-              heavy = [],
-              light = []
+              heavy = ['cake', 'donut', 'cookies', 'pie', 'brownies'],
+              light = ['crossiant']
           ]]
   ]
   
@@ -157,3 +165,17 @@ fetch('https://api.edamam.com/api/recipes/v2?type=public&app_id=ea182cd5&app_key
       nextQuestion();
   });
 
+  var quickBtn = document.getElementById("quick-pick-btn");
+  var quickReturn = document.getElementById("quick-pick-return");
+  var foodsArray = ['taco', 'burrito', 'nachos', 'fajitas', 'quesadilla', 'enchilada', 'butter-chicken', 'chicken-masala', 'samosa', 'naan', 'tikka', 'biryani', 'pakora',
+  'tom-kha-gai', 'pad-thai', 'khao-pad', 'pad-kra-pao-moo', 'tom-yum-goong', 'panang-curry', 'burgers', 'hot-dog', 'steak', 'wings', 'fried-chicken', 'french-fries', 'salad',
+  'spaghetti', 'pizza', 'lasagna', 'bruscetta', 'chicken-parm', 'risotto', 'matzo-ball-soup', 'knish', 'creamcheese-lox', 'deli-sammy', 'challah', 'latkes', 
+  'orange-chicken', 'mongolian-beef', 'lo-mein', 'fried-rice', 'kung-pao-shrimp', 'eggroll', 'sushi', 'ramen', 'teriyaki', 'tempura', 'katsudon', 'takoyaki',
+  'spring-roll', 'pho', 'bahn-mi', 'com-tam', 'bun-cha', 'goi-cuon', 'ice-cream-cone', 'ice-cream-cake', 'sundae', 'banana-split', 'milkshake', 'mochi',
+  'cake', 'donut', 'cookies', 'crossiant', 'pie', 'brownies', 'crepe', 'tarte-tatin', 'mille-fueille', 'macarons', 'creme-brulee', 'palmiers', 'madeleines'];
+  
+  quickBtn.addEventListener("click", function() {
+    var random = (foodsArray[Math.floor(Math.random() * foodsArray.length)]);
+   quickReturn.innerHTML=random;
+    // console.log(random);
+  });
