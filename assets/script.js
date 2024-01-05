@@ -16,77 +16,144 @@ fetch('https://api.edamam.com/api/recipes/v2?type=public&app_id=ea182cd5&app_key
     console.log(data);
   });
 
-var startBtn = document.getElementById('submit-btn');
-const questions = [{
-    question: "What was the last thing you ate?",
-    answers: [{
-        text: "A light snack ",
-        points: 4
-    },
-    {
-        text: "Fast food",
-        points: 3
-    },
-    {
-        text: "Steak lobster and fresh veggies",
-        points: 2
-    },
-    {
-        text: "Too busy to eat",
-        points: 5
-    }
-]
-},
-{
-    question: "How hungry are you right now?",
-    answers: [{
-        text: "I want to eat out of boredom",
-        value: 2
-    },
-    {
-        text: "I'm always looking for something in the panty",
-        value: 3
-    },
-    {
-        text: "I am preparing for my dinner right now",
-        value: 4
-    },
-    {
-        text: "I feel like I haven't eaten in a year",
-        value: 5
-    }
-    ]
-}
-];
-startBtn.addEventListener('click', showQuestions);
-var currentQuestionIndex = 0;
-var userScore = 0;
-var questionElement = document.getElementById("question");
-var answerBtns = document.getElementById("answers");
-const nextBtn = document.getElementById("Next-btn");
+  var quizEl = document.querySelector("#quiz");
+  var startQuizEl = document.querySelector("#start-quiz");
+  var submitbtnEl = document.querySelector('#submitbtn');
+  var submitline = document.querySelector('#submitline');
+  
+  var quizHeaderEl = document.querySelector('#question');
+  var answersEl = document.querySelector("#answers");
+  var answer1El = document.querySelector("#answer1");
+  var answer2El = document.querySelector("#answer2");
+  var answer3El = document.querySelector("#answer3");
+  var answer4El = document.querySelector("#answer4");
+  
+  var foods = [
+      spicy = [
+          Mexicanfood = [
+              heavy = ['Burrito', 'Tacos', 'Enchiladas'],
+              light = ['Nachos', 'Quesadilla', 'Fajitas']
+          ],
+          Indianfood = [
+              heavy = [],
+              light = []
+          ],
+          Thaifood = [
+              heavy = [],
+              light = []
+          ]],
+  
+      homestyle = [
+          Americanfood = [
+              heavy = [],
+              light = []
+          ],
+          Italianfood = [
+              heavy = [],
+              light = []
+          ],
+          Jewishfood = [
+              heavy = [],
+              light = []
+          ]],
+  
+      sweet = [
+          IceCream = [
+              heavy = [],
+              light = []
+          ],
+          Bakery = [
+              heavy = [],
+              light = []
+          ]]
+  ]
+  
+  var questionSet1 = ["What kind of food are you craving?", "Spicy", "Homestyle", "Asian", "Sweet", "IDK"];
+  var questionSet2 = ["What sounds more appetizing?", "Mexican", "Indian", "Thai"];
+  var questionSet3 = ["What sounds more appetizing?", "American", "Italian", "Jewish"];
+  var questionSet4 = ["What sounds more appetizing?", "Chinese", "Vietnamese", "Asian"];
+  var questionSet5 = ["Are you looking for something heavy or light?", "Heavy", "Light"];
+  
+  
+  var questionSets = [questionSet1, questionSet2, questionSet3, questionSet4, questionSet5]
+  var setSelector = 0
+  
+  function startQuiz() {
+      quizHeaderEl.textContent = questionSets[setSelector][0];
+      answer1El.textContent = questionSets[setSelector][1];
+      answer2El.textContent = questionSets[setSelector][2];
+      answer3El.textContent = questionSets[setSelector][3];
+      answer4El.textContent = questionSets[setSelector][4];
+  }
+  
+  function nextQuestion() {
+      setSelector++;
+      quizHeaderEl.textContent = questionSets[setSelector][0];
+      answer1El.textContent = questionSets[setSelector][1];
+      answer2El.textContent = questionSets[setSelector][2];
+      answer3El.textContent = questionSets[setSelector][3];
+      answer4El.textContent = questionSets[setSelector][4];
+  }
+  
+  function endQuiz() {
+  
+  }
+  
+  startQuizEl.addEventListener("click", function (event) {
+      var element = event.target;
+  
+      if (element.matches("#start-quiz")) {
+          var state = element.getAttribute("data-state");
+  
+          if (state === "visible") {
+              element.dataset.state = "hidden";
+              element.setAttribute("style", "display: none;");
+  
+          };
+  
+          quizEl.setAttribute("style", "height: 600px");
+          answer1El.setAttribute("style", "display: block;");
+          answer2El.setAttribute("style", "display: block;");
+          answer3El.setAttribute("style", "display: block;");
+          answer4El.setAttribute("style", "display: block;");
+          submitline.setAttribute("style", "display: block;");
+          startQuiz();
+  
+  
+      };
+  
+  });
+  
+  answer1El.addEventListener("click", function (event) {
+      var element = event.target;
+  
 
-startBtn.classList.remove('hide');
+  
+  
+      nextQuestion();
+  });
+  
+  answer2El.addEventListener("click", function (event) {
+      var element = event.target;
+  
+  
+  
+      nextQuestion();
+  });
+  
+  answer3El.addEventListener("click", function (event) {
+      var element = event.target;
+  
+  
+  
+      nextQuestion();
+  });
+  
+  answer4El.addEventListener("click", function (event) {
+      var element = event.target;
+  
+  
+  
+      nextQuestion();
+  });
 
-function startQuiz() {
-    currentQuestionIndex = 0;
-    nextBtn.innerHTML = "Next";
-}
-
-function showQuestions() {
-    var currentQuestion = questions[currentQuestionIndex];
-    var questionNo = currentQuestionIndex + 1;
-    questionElement.innerhtml = questionNo + ". " + currentQuestion.question;
-
-    currentQuestion.answers.forEach(answer => {
-        const button = document.createElement("button");
-        button.innerHTML = answer.text;
-        button.classList.add("btn");
-        answerBtns.appendChild(button);
-        button.addEventListener("click", selectAnswer);
-    });
-}
-
-function selectAnswer(e) {
-    const selectedBtn = e.target;
-    nextBtn.style.display = "block";
-}
