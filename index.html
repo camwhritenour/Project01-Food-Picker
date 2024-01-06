@@ -32,32 +32,36 @@
             </p>            
         </header>
 
-        <div id="survey-box" class="survey hide container">
+        <div class="survey-box" id="survey">
             <div class="row">
-              <div class="col card bg-transparent border border-white rounded" style="width: 18rem;">
-                <div class="card-body">
-                  <p id="question" class="hide card-text">Some quick example to build on the card title and make up the bulk of the card's content.</p>
-                  <ul id="answers" class="hide">
-                    <li>
-                        <button id="answer1btn"></button>
-                    </li>
-                    <li>
-                        <button id="answer2btn"></button>
-                    </li>
-                    <li>
-                        <button id="answer3btn"></button>
-                    </li>
-                    <li>
-                        <button id="answer4btn"></button>
-                    </li>
-                </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+                <div class="col card bg-transparent border border-white rounded" style="width: 18rem;">
+                    <div class="card-body">
+                        <h1 id="question">
 
-        <button id="submit-btn" class="hide btn btn-secondary">Start</button>
-        <button id="Next-btn" class="hide btn btn-secondary">Next</button>
+                        </h1>
+                        <ul id="answers">
+                            <li>
+                                <button id="answer1"></button>
+                            </li>
+                            <li>
+                                <button id="answer2"></button>
+                            </li>
+                            <li>
+                                <button id="answer3"></button>
+                            </li>
+                            <li>
+                                <button id="answer4"></button>
+                            </li>
+                        </ul>
+
+                        <div class="buttonDiv">
+                            <button id="start-quiz" data-state="visible">Start</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     </main>
     <footer class="container">
