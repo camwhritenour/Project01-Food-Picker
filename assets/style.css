@@ -32,3 +32,36 @@ body {
     background-repeat: no-repeat;
 }
 
+#start-quiz {
+    background-color: blue;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+#answer1, #answer2, #answer3, #answer4 {
+    background-color: blue;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 32px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    justify-items: left;
+    display: none
+    
+}
+
+#answers {
+    list-style: none;
+}
+
+.buttonDiv {
+    margin-top: 0px;
+}
