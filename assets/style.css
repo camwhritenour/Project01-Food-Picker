@@ -36,7 +36,7 @@ body {
     background-repeat: no-repeat;
 }
 
-#start-quiz {
+/* #start-quiz {
     background-color: blue;
     border-radius: 10px;
     color: white;
@@ -46,7 +46,7 @@ body {
     font-size: 16px;
     display: flex;
     align-items: center;
-}
+} */
 
 #answer1, #answer2, #answer3, #answer4 {
     background-color: blue;
