@@ -92,8 +92,8 @@ const foodCategories = [
         ],
 
         french = [
-            heavy = ["Cake"],
-            light = ["Croissant"]
+            heavy = ['Mille Fueille', 'Creme Brulee', 'Tarte Tatin'],
+            light = ['Crepe', 'Macarons', 'Palmiers', 'Madeleines']
         ],
     ]
 
@@ -183,6 +183,11 @@ function endQuiz(element) {
     answer2El.setAttribute("style", "display: none;");
     answer3El.setAttribute("style", "display: none;");
     answer4El.setAttribute("style", "display: none;");
+    startQuizEl.setAttribute("style", "display: block");
+    startQuizEl.textContent = "Restart"
+    startQuizEl.addEventListener("click", function() {
+        window.location.reload();
+    });
 }
 
 startQuizEl.addEventListener("click", function (event) {
