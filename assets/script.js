@@ -1,15 +1,31 @@
-var edamamKEY = "d1dff8cbcbfaa0cdfb00112c92e85cf8";
-var edamamID = "ea182cd5";
-var edamamURL = "https://api.edamam.com/api/recipes/v2?type=public&app_id=ea182cd5&app_key=d1dff8cbcbfaa0cdfb00112c92e85cf8";
+const edamamKEY = "d1dff8cbcbfaa0cdfb00112c92e85cf8";
+const edamamID = "ea182cd5";
 
-function getRecipes() {
+function fetchRecipeFromEdamam(foodItem) {
+    const edamamURL = `https://api.edamam.com/api/recipes/v2?type=public&app_id=` + edamamID + '&app_key=' + edamamKEY + '&q=' + foodItem;
     fetch(edamamURL)
         .then(response => response.json())
         .then(data => {
             console.log(data);
-        })
+
+        const recipe = data.hits[0].recipe;
+        console.log('Recipe:', recipe);
+    })
 }
-//getRecipes();
+
+function searchRestaurantsWithFoodItem(foodItem) {
+    const googleKEY = 'AIzaSyBvG7rlAIbTb10ErVbADiHj0rOEegaNxlQ';
+    const googleURL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=` + foodItem + `+restaurants&key=` + googleKEY;
+
+    fetch(googleURL)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        const restaurants = data.results;
+        console.log('Restaurants:', restaurants);
+    })
+}
+
 
 /* Element Selectors */
 
@@ -146,7 +162,6 @@ function nextQuestion(element) {
     }
 }
 
-
 function choiceDecipher() {
     var userSelection = JSON.parse(localStorage.getItem("userSelection"))
     var choices = [userSelection[0].userChoice, userSelection[1].userChoice, userSelection[2].userChoice]
@@ -172,6 +187,8 @@ function choiceDecipher() {
     }
     var finalChoice = foodCategories[foodCategory][groupID][weightID][Math.floor(Math.random() * foodCategories[foodCategory][groupID][weightID].length)];
     quizHeaderEl.textContent = finalChoice
+    fetchRecipeFromEdamam(finalChoice);
+    searchRestaurantsWithFoodItem(finalChoice);
   }
 
 function endQuiz(element) {
