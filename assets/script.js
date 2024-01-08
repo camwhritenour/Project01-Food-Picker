@@ -170,7 +170,7 @@ function choiceDecipher() {
     } if (choices[2] === "Light") {
       weightID = 1
     }
-    var finalChoice = foodCategories[foodCategory][groupID][weightID][0];
+    var finalChoice = foodCategories[foodCategory][groupID][weightID][Math.floor(Math.random() * foodCategories[foodCategory][groupID][weightID].length)];
     quizHeaderEl.textContent = finalChoice
   }
 
