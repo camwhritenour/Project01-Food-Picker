@@ -4,10 +4,10 @@ var edamamURL = "https://api.edamam.com/api/recipes/v2?type=public&app_id=ea182c
 
 function getRecipes() {
     fetch(edamamURL)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
 }
 //getRecipes();
 
@@ -159,6 +159,8 @@ const foodCategories = [
 
 ]
 
+var userSelection = []
+
 console.log(foodCategories[0][0].name)
 
 /* Quiz Functions */
@@ -169,8 +171,14 @@ var options = [["Spicy", "Homestyle", "Asian", "Sweet"], ["Mexican", "Indian", "
 var questionSelector = 0
 var optionsGroup = 0
 
+var foodCategory = 0;
+var groupID = 0;
+var weightID = 0;
+var questionSet = []
+if (questionSelector > 2) { endQuiz() }
+
 function startQuiz() {
-    var questionSet = [questions[questionSelector], options[optionsGroup][0], options[optionsGroup][1], options[optionsGroup][2], options[optionsGroup][3]]
+    questionSet = [questions[questionSelector], options[optionsGroup][0], options[optionsGroup][1], options[optionsGroup][2], options[optionsGroup][3]]
     quizHeaderEl.textContent = questionSet[0];
     answer1El.textContent = questionSet[1];
     answer2El.textContent = questionSet[2];
@@ -178,109 +186,147 @@ function startQuiz() {
     answer4El.textContent = questionSet[4];
 }
 
-function nextQuestion() {
-        questionSelector++
-        var questionSet = [questions[questionSelector], options[optionsGroup][0], options[optionsGroup][1], options[optionsGroup][2], options[optionsGroup][3]]
-    quizHeaderEl.textContent = questionSet[0];
-    answer1El.textContent = questionSet[1];
-    answer2El.textContent = questionSet[2];
-    answer3El.textContent = questionSet[3];
-    answer4El.textContent = questionSet[4];
+function nextQuestion(element) {
+    questionSelector++
+    if (questionSelector < questions.length) {
 
-    console.log(questionSet)
-    console.log(questionSelector)
-}
+        questionSet = [questions[questionSelector], options[optionsGroup][0], options[optionsGroup][1], options[optionsGroup][2], options[optionsGroup][3]]
+        quizHeaderEl.textContent = questionSet[0];
+        answer1El.textContent = questionSet[1];
+        answer2El.textContent = questionSet[2];
+        answer3El.textContent = questionSet[3];
+        answer4El.textContent = questionSet[4];
+        if (questionSelector === 1){answer4El.setAttribute("style", "display: none;")};
+        if (questionSelector === 2){answer3El.setAttribute("style", "display: none;")};
 
-function endQuiz() {
-    quizEl.setAttribute("style", "height: 600px");
-    answer1El.setAttribute("style", "display: none;");
-    answer2El.setAttribute("style", "display: none;");
-    answer3El.setAttribute("style", "display: none;");
-    answer4El.setAttribute("style", "display: none;");
-    quizHeaderEl.textContent = "Figure it out"
-}
+            console.log(questionSet)
+            console.log(questionSelector)
+        }
+        else {
+            endQuiz(element);
+        }
+    }
 
-startQuizEl.addEventListener("click", function (event) {
-    var element = event.target;
+    function displayFinalChoice() {
+        var userSelection = JSON.parse(localStorage.getItem("userSelection"))
+        quizHeaderEl.textContent = userSelection[0].userChoice + userSelection[1].userChoice + userSelection[2].userChoice
+    }
 
-    if (element.matches("#start-quiz")) {
-        var state = element.getAttribute("data-state");
+    function endQuiz(element) {
+        console.log(element.textContent)
+        console.log(localStorage.getItem("userSelection"))
+        displayFinalChoice();
+        quizEl.setAttribute("style", "height: 600px");
+        answer1El.setAttribute("style", "display: none;");
+        answer2El.setAttribute("style", "display: none;");
+        answer3El.setAttribute("style", "display: none;");
+        answer4El.setAttribute("style", "display: none;");
+        console.log(foodCategories);
+        console.log(groupID, "groupID");
+        console.log(weightID, "weightID");
+        // quizHeaderEl.textContent = foodCategories[foodCategory][groupID][weightID][0]
+    }
 
-        if (state === "visible") {
-            element.dataset.state = "hidden";
-            element.setAttribute("style", "display: none;");
+    startQuizEl.addEventListener("click", function (event) {
+        var element = event.target;
+
+        if (element.matches("#start-quiz")) {
+            var state = element.getAttribute("data-state");
+
+            if (state === "visible") {
+                element.dataset.state = "hidden";
+                element.setAttribute("style", "display: none;");
+
+            };
+
+            quizEl.setAttribute("style", "height: 600px");
+            answer1El.setAttribute("style", "display: block;");
+            answer2El.setAttribute("style", "display: block;");
+            answer3El.setAttribute("style", "display: block;");
+            answer4El.setAttribute("style", "display: block;");
+            startQuiz();
+
 
         };
 
-        quizEl.setAttribute("style", "height: 600px");
-        answer1El.setAttribute("style", "display: block;");
-        answer2El.setAttribute("style", "display: block;");
-        answer3El.setAttribute("style", "display: block;");
-        answer4El.setAttribute("style", "display: block;");
-        startQuiz();
+    });
+
+    function saveUserChoice(element) {
+        userSelection.push({
+            question: questionSet[questionSelector],
+            userChoice: element.textContent
+        })
+        localStorage.setItem("userSelection", JSON.stringify(userSelection))
+    }
+
+    answer1El.addEventListener("click", function (event) {
+        var element = event.target;
+
+        saveUserChoice(element);
+
+        if (element.textContent === "Spicy") {
+            optionsGroup = 1
+        } else { 
+            optionsGroup = 5 
+        }
+        console.log(optionsGroup)
+        nextQuestion(element)
+    })
+
+    answer2El.addEventListener("click", function (event) {
+        var element = event.target;
+
+        saveUserChoice(element);
+
+        if (element.textContent === "Homestyle") {
+            optionsGroup = 2
+        } else {
+            optionsGroup = 5
+        }
+        console.log(optionsGroup)
+        nextQuestion(element)
+    })
+
+    answer3El.addEventListener("click", function (event) {
+        var element = event.target;
+
+        saveUserChoice(element);
+
+        if (element.textContent === "Asian") {
+            optionsGroup = 3
+        } else {
+            optionsGroup = 5
+        }
+
+        console.log(optionsGroup)
+        nextQuestion(element)
+    })
+
+    answer4El.addEventListener("click", function (event) {
+        var element = event.target;
+
+        saveUserChoice(element);
+
+        if (element.textContent === "Sweet") {
+            optionsGroup = 4
+        }
 
 
-    };
-
-});
-
-answer1El.addEventListener("click", function (event) {
-    var element = event.target;
-
-    if (element.textContent === "Spicy") {
-        optionsGroup = 1
-    } else {optionsGroup = 5}
-    console.log(optionsGroup)
+        nextQuestion()
+    })
 
 
-    nextQuestion()
-})
+    var quickBtn = document.getElementById("quick-pick-btn");
+    var quickReturn = document.getElementById("quick-pick-return");
+    var foodsArray = ['taco', 'burrito', 'nachos', 'fajitas', 'quesadilla', 'enchilada', 'butter-chicken', 'chicken-masala', 'samosa', 'naan', 'tikka', 'biryani', 'pakora',
+        'tom-kha-gai', 'pad-thai', 'khao-pad', 'pad-kra-pao-moo', 'tom-yum-goong', 'panang-curry', 'burgers', 'hot-dog', 'steak', 'wings', 'fried-chicken', 'french-fries', 'salad',
+        'spaghetti', 'pizza', 'lasagna', 'bruscetta', 'chicken-parm', 'risotto', 'matzo-ball-soup', 'knish', 'creamcheese-lox', 'deli-sammy', 'challah', 'latkes',
+        'orange-chicken', 'mongolian-beef', 'lo-mein', 'fried-rice', 'kung-pao-shrimp', 'eggroll', 'sushi', 'ramen', 'teriyaki', 'tempura', 'katsudon', 'takoyaki',
+        'spring-roll', 'pho', 'bahn-mi', 'com-tam', 'bun-cha', 'goi-cuon', 'ice-cream-cone', 'ice-cream-cake', 'sundae', 'banana-split', 'milkshake', 'mochi',
+        'cake', 'donut', 'cookies', 'crossiant', 'pie', 'brownies', 'crepe', 'tarte-tatin', 'mille-fueille', 'macarons', 'creme-brulee', 'palmiers', 'madeleines'];
 
-answer2El.addEventListener("click", function (event) {
-    var element = event.target;
-
-    if (element.textContent === "Homestyle") {
-        optionsGroup = 2
-    } else {optionsGroup = 5}
-
-
-    nextQuestion()
-})
-
-answer3El.addEventListener("click", function (event) {
-    var element = event.target;
-
-    if (element.textContent === "Asian") {
-        optionsGroup = 3
-    } else {optionsGroup = 5}
-
-
-    nextQuestion()
-})
-
-answer4El.addEventListener("click", function (event) {
-    var element = event.target;
-
-    if (element.textContent === "Sweet") {
-        optionsGroup = 4
-    } else {optionsGroup = 5}
-
-
-    nextQuestion()
-})
-
-
-  var quickBtn = document.getElementById("quick-pick-btn");
-  var quickReturn = document.getElementById("quick-pick-return");
-  var foodsArray = ['taco', 'burrito', 'nachos', 'fajitas', 'quesadilla', 'enchilada', 'butter-chicken', 'chicken-masala', 'samosa', 'naan', 'tikka', 'biryani', 'pakora',
-  'tom-kha-gai', 'pad-thai', 'khao-pad', 'pad-kra-pao-moo', 'tom-yum-goong', 'panang-curry', 'burgers', 'hot-dog', 'steak', 'wings', 'fried-chicken', 'french-fries', 'salad',
-  'spaghetti', 'pizza', 'lasagna', 'bruscetta', 'chicken-parm', 'risotto', 'matzo-ball-soup', 'knish', 'creamcheese-lox', 'deli-sammy', 'challah', 'latkes', 
-  'orange-chicken', 'mongolian-beef', 'lo-mein', 'fried-rice', 'kung-pao-shrimp', 'eggroll', 'sushi', 'ramen', 'teriyaki', 'tempura', 'katsudon', 'takoyaki',
-  'spring-roll', 'pho', 'bahn-mi', 'com-tam', 'bun-cha', 'goi-cuon', 'ice-cream-cone', 'ice-cream-cake', 'sundae', 'banana-split', 'milkshake', 'mochi',
-  'cake', 'donut', 'cookies', 'crossiant', 'pie', 'brownies', 'crepe', 'tarte-tatin', 'mille-fueille', 'macarons', 'creme-brulee', 'palmiers', 'madeleines'];
-  
-  quickBtn.addEventListener("click", function() {
-    var random = (foodsArray[Math.floor(Math.random() * foodsArray.length)]);
-   quickReturn.innerHTML=random;
-    // console.log(random);
-  });
+    quickBtn.addEventListener("click", function () {
+        var random = (foodsArray[Math.floor(Math.random() * foodsArray.length)]);
+        quickReturn.innerHTML = random;
+        // console.log(random);
+    });
