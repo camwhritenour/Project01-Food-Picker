@@ -36,64 +36,64 @@ const foodCategories = [
         ],
 
         indian = [
-            heavy = ['butter-chicken', 'chicken-masala', 'tikka', 'biryani', 'pakora'],
-            light = ['naan', 'samosa']
+            heavy = ['Butter Chicken', 'Chicken Masala', 'Tikka', 'Biryani', 'Pakora'],
+            light = ['Naan', 'Samosa']
         ],
 
         thai = [
-            heavy = ['pad-thai', 'khao-pad', 'pad-kra-pao-moo'],
-            light = ['panang-curry', 'tom-yum-goong', 'tom-kha-gai']
+            heavy = ['Pad Thai', 'Khao Pad', 'Pad Kra Pao Moo'],
+            light = ['Panang-Curry', 'Tom Yum Goong', 'Tom Kha Gai']
         ],
     ],
 
     homestyle = [
         american = [
-            heavy = ['burgers', 'steak', 'wings', 'fried-chicken', 'french-fries'],
-            light = ['salad', 'hot-dog']
+            heavy = ['Burgers', 'Steak', 'Wings', 'Fried Chicken', 'French Fries'],
+            light = ['Salad', 'Hot Dog']
         ],
 
         italian = [
-            heavy = ['spaghetti', 'pizza', 'lasagna', 'chicken-parm'],
-            light = ['bruscetta', 'risotto']
+            heavy = ['Spaghetti', 'Pizza', 'Lasagna', 'Chicken Parmesan'],
+            light = ['Bruscetta', 'Risotto']
         ],
 
         jewish = [
-            heavy = ['knish', 'deli-sammy', 'challah', 'latkes'],
-            light = ['matzo-ball-soup', 'creamcheese-lox']
+            heavy = ['Knish', 'Deli Sandwich', 'Challah', 'Latkes'],
+            light = ['Matzo Ball Soup', 'Cream Cheese Lox']
         ],
     ],
 
     asian = [
         chinese = [
-            heavy = ['orange-chicken', 'mongolian-beef', 'kung-pao-shrimp'],
-            light = ['eggroll', 'lo-mein', 'fried-rice']
+            heavy = ['Orange Chicken', 'Mongolian Beef', 'Kung Pao Shrimp'],
+            light = ['Eggroll', 'Lo Mein', 'Fried Rice']
         ],
 
         japanese = [
-            heavy = ['ramen', 'teriyaki', 'tempura', 'katsudon'],
-            light = ['sushi', 'takoyaki']
+            heavy = ['Ramen', 'Teriyaki', 'Tempura', 'Katsudon'],
+            light = ['Sushi', 'Takoyaki']
         ],
 
         vietnamese = [
-            heavy = ['bahn-mi', 'com-tam', 'bun-cha', 'goi-cuon'],
-            light = ['spring-roll', 'pho']
+            heavy = ['Bahn Mi', 'Com Tam', 'Bun Cha', 'Goi Cuon'],
+            light = ['Spring Roll', 'Pho']
         ],
     ],
 
     sweet = [
         iceCream = [
-            heavy = ['ice-cream-cake', 'banana-split', 'milkshake'],
-            light = ['ice-cream-cone', 'sundae', 'mochi']
+            heavy = ['Ice Cream Cake', 'Banana Split', 'Milkshake'],
+            light = ['Ice Cream Cone', 'Sundae', 'Mochi']
         ],
 
         bakery = [
-            heavy = ['cake', 'pie', 'brownies'],
-            light = ['crossiant', 'cookies', 'donut']
+            heavy = ['Cake', 'Pie', 'Brownies'],
+            light = ['Crossiant', 'Cookies', 'Donut']
         ],
 
         french = [
-            heavy = ["cake"],
-            light = ["croissant"]
+            heavy = ["Cake"],
+            light = ["Croissant"]
         ],
     ]
 
@@ -278,7 +278,7 @@ var quickBtn = document.getElementById("quick-pick-btn");
 var quickReturn = document.getElementById("quick-pick-return");
 var foodsArray = ['Taco', 'Burrito', 'Nachos', 'Fajitas', 'Quesadilla', 'Enchilada', 'Butter Chicken', 'Chicken Masala', 'Samosa', 'Naan', 'Tikka', 'Biryani', 'Pakora',
     'Tom Kha Gai', 'Pad Thai', 'Khao Pad', 'Pad Kra Pao Moo', 'Tom Yum Goong', 'Panang Curry', 'Burgers', 'Hot Dog', 'Steak', 'Wings', 'Fried Chicken', 'French Fries', 'Salad',
-    'Spaghetti', 'Pizza', 'Lasagna', 'Bruscetta', 'Chicken Parm', 'Risotto', 'Matzo Ball Soup', 'Knish', 'Cream Cheese & Lox', 'Deli Sandwich', 'Challah', 'Latkes',
+    'Spaghetti', 'Pizza', 'Lasagna', 'Bruscetta', 'Chicken Parmesan', 'Risotto', 'Matzo Ball Soup', 'Knish', 'Cream Cheese & Lox', 'Deli Sandwich', 'Challah', 'Latkes',
     'Orange Chicken', 'Mongolian Beef', 'Lo Mein', 'Fried Rice', 'Kung Pao Shrimp', 'Eggroll', 'Sushi', 'Ramen', 'Teriyaki', 'Tempura', 'Katsudon', 'Takoyaki',
     'Spring Roll', 'Pho', 'Bahn Mi', 'Com Tam', 'Bun Cha', 'Goi Cuon', 'Ice Cream Cone', 'Ice Cream Cake', 'Sundae', 'Banana Split', 'Milkshake', 'Mochi',
     'Cake', 'Donut', 'Cookies', 'Crossiant', 'Pie', 'Brownies', 'Crepe', 'Tarte Tatin', 'Mille Fueille', 'Macarons', 'Creme Brulee', 'Palmiers', 'Madeleines'];
