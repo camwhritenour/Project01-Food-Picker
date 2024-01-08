@@ -276,12 +276,12 @@ answer4El.addEventListener("click", function (event) {
 
 var quickBtn = document.getElementById("quick-pick-btn");
 var quickReturn = document.getElementById("quick-pick-return");
-var foodsArray = ['taco', 'burrito', 'nachos', 'fajitas', 'quesadilla', 'enchilada', 'butter-chicken', 'chicken-masala', 'samosa', 'naan', 'tikka', 'biryani', 'pakora',
-    'tom-kha-gai', 'pad-thai', 'khao-pad', 'pad-kra-pao-moo', 'tom-yum-goong', 'panang-curry', 'burgers', 'hot-dog', 'steak', 'wings', 'fried-chicken', 'french-fries', 'salad',
-    'spaghetti', 'pizza', 'lasagna', 'bruscetta', 'chicken-parm', 'risotto', 'matzo-ball-soup', 'knish', 'creamcheese-lox', 'deli-sammy', 'challah', 'latkes',
-    'orange-chicken', 'mongolian-beef', 'lo-mein', 'fried-rice', 'kung-pao-shrimp', 'eggroll', 'sushi', 'ramen', 'teriyaki', 'tempura', 'katsudon', 'takoyaki',
-    'spring-roll', 'pho', 'bahn-mi', 'com-tam', 'bun-cha', 'goi-cuon', 'ice-cream-cone', 'ice-cream-cake', 'sundae', 'banana-split', 'milkshake', 'mochi',
-    'cake', 'donut', 'cookies', 'crossiant', 'pie', 'brownies', 'crepe', 'tarte-tatin', 'mille-fueille', 'macarons', 'creme-brulee', 'palmiers', 'madeleines'];
+var foodsArray = ['Taco', 'Burrito', 'Nachos', 'Fajitas', 'Quesadilla', 'Enchilada', 'Butter Chicken', 'Chicken Masala', 'Samosa', 'Naan', 'Tikka', 'Biryani', 'Pakora',
+    'Tom Kha Gai', 'Pad Thai', 'Khao Pad', 'Pad Kra Pao Moo', 'Tom Yum Goong', 'Panang Curry', 'Burgers', 'Hot Dog', 'Steak', 'Wings', 'Fried Chicken', 'French Fries', 'Salad',
+    'Spaghetti', 'Pizza', 'Lasagna', 'Bruscetta', 'Chicken Parm', 'Risotto', 'Matzo Ball Soup', 'Knish', 'Cream Cheese & Lox', 'Deli Sandwich', 'Challah', 'Latkes',
+    'Orange Chicken', 'Mongolian Beef', 'Lo Mein', 'Fried Rice', 'Kung Pao Shrimp', 'Eggroll', 'Sushi', 'Ramen', 'Teriyaki', 'Tempura', 'Katsudon', 'Takoyaki',
+    'Spring Roll', 'Pho', 'Bahn Mi', 'Com Tam', 'Bun Cha', 'Goi Cuon', 'Ice Cream Cone', 'Ice Cream Cake', 'Sundae', 'Banana Split', 'Milkshake', 'Mochi',
+    'Cake', 'Donut', 'Cookies', 'Crossiant', 'Pie', 'Brownies', 'Crepe', 'Tarte Tatin', 'Mille Fueille', 'Macarons', 'Creme Brulee', 'Palmiers', 'Madeleines'];
 
 quickBtn.addEventListener("click", function () {
     var random = (foodsArray[Math.floor(Math.random() * foodsArray.length)]);
