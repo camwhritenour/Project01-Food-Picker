@@ -1,5 +1,8 @@
 :root {
     --txt-color: azure;
+    --border-color1: palevioletred;
+    --border-color2: rgb(103, 149, 248);
+    --bg-color:  rgb(0, 0, 0, 0.6);
 
 }
 
@@ -34,6 +37,24 @@ body {
     background-image: url(https://coolwallpapers.me/picsup/3026732-egg_fish_food_japan_maki_rice_salmon_soy_sushi_tuna.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+#survey-box {
+    background: transparent;
+    border-style: hidden;
+    border-color: var(--border-color1);
+    border-width: 5px;
+}
+
+#qp-container {
+    margin-bottom: 3%;
+    padding-bottom: 1%;
+    background: var(--bg-color);
+    border-style: solid;
+    border-color: var(--border-color2);
+    border-width: 3px;
+    
+
 }
 
 /* #start-quiz {
