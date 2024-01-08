@@ -13,6 +13,7 @@ function getRecipes() {
 
 /* Element Selectors */
 
+var surveyBoxEl = document.querySelector("#survey-box");
 var quizEl = document.querySelector("#survey");
 var startQuizEl = document.querySelector("#start-quiz");
 var submitbtnEl = document.querySelector('#submitbtn');
@@ -202,6 +203,7 @@ startQuizEl.addEventListener("click", function (event) {
 
         };
 
+        surveyBoxEl.setAttribute("style", "border-style: solid; background: var(--bg-color);");
         quizEl.setAttribute("style", "height: 600px");
         answer1El.setAttribute("style", "display: block;");
         answer2El.setAttribute("style", "display: block;");

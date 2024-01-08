@@ -39,9 +39,9 @@ body {
     background-repeat: no-repeat;
 }
 
-#quiz-block {
-    background: var(--bg-color);
-    border-style: solid;
+#survey-box {
+    background: transparent;
+    border-style: hidden;
     border-color: var(--border-color1);
     border-width: 5px;
 }
