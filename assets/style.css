@@ -1,3 +1,4 @@
+/* Create CSS variables at the root of the document to used throughout the style sheet */
 :root {
     --txt-color: azure;
     --border-color1: palevioletred;
@@ -34,8 +35,11 @@ header p {
 }
 
 body {
+    /* Background-image property sets a background image on body element */
     background-image: url(https://coolwallpapers.me/picsup/3026732-egg_fish_food_japan_maki_rice_salmon_soy_sushi_tuna.jpg);
+    /* Scales the background image while preserving its ratio to the smallest possible size to fill the container / body leaving no empty space */
     background-size: cover;
+    /* The background image is not repeated when resizing */
     background-repeat: no-repeat;
     background-color: black;
 }
@@ -63,10 +67,12 @@ body {
 
 }
 
+/* Hides answer / option buttons */
 #answer1, #answer2, #answer3, #answer4  {
     display: none;  
 }
 
+/* Hides recipe and restaurant buttons */
 #recipe, #restaurant {
     display: none;
     
