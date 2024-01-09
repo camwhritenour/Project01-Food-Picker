@@ -7,6 +7,7 @@ function renderHistory () {
         var li = document.createElement("li")
         li.textContent = finalSelection[i]
         recentlySearched.appendChild(li)
+        finalSelection = finalSelection.slice(-5);
     }
 }
 
