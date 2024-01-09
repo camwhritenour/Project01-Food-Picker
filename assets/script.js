@@ -7,9 +7,12 @@ function fetchRecipeFromEdamam(foodItem) {
         .then(data => {
             console.log(data);
 
-        const recipe = data.hits[0].recipe;
-        console.log('Recipe:', recipe);
-    })
+            const recipe = data.hits[0].recipe;
+            console.log('Recipe:', recipe);
+            console.log(recipe.url);
+            recipeURL = recipe.url;
+
+        })
 }
 
 function searchRestaurantsWithFoodItem(foodItem) {
@@ -19,18 +22,18 @@ function searchRestaurantsWithFoodItem(foodItem) {
     fetch(googleURL, {
         mode: "no-cors"
     })
-    .then(function (response){
-        return response.json()
-            .then(data => {
-            console.log(data);
-        });
-    })
-    
+        .then(function (response) {
+            return response.json()
+                .then(data => {
+                    console.log(data);
+                });
+        })
+
 }
 
 
 /* Element Selectors */
-
+var recipeURL = "";
 var surveyBoxEl = document.querySelector("#survey-box");
 var quizEl = document.querySelector("#survey");
 var startQuizEl = document.querySelector("#start-quiz");
@@ -42,6 +45,8 @@ var answer1El = document.querySelector("#answer1");
 var answer2El = document.querySelector("#answer2");
 var answer3El = document.querySelector("#answer3");
 var answer4El = document.querySelector("#answer4");
+var recipeEl = document.querySelector("#recipe");
+var restaurantEl = document.querySelector("#restaurant")
 
 
 /* Food Variables */
@@ -168,31 +173,31 @@ function nextQuestion(element) {
 function choiceDecipher() {
     var userSelection = JSON.parse(localStorage.getItem("userSelection"))
     var choices = [userSelection[0].userChoice, userSelection[1].userChoice, userSelection[2].userChoice]
-    console.log(choices[0]+ choices[1]+ choices[2])
+    console.log(choices[0] + choices[1] + choices[2])
     console.log(groupID)
-  
-    if (choices[0] === "Spicy"){
-      foodCategory = 0
-    } if (choices[0] === "Homestyle"){
-      foodCategory = 1
-    } if (choices[0] === "Asian"){
-      foodCategory = 2
+
+    if (choices[0] === "Spicy") {
+        foodCategory = 0
+    } if (choices[0] === "Homestyle") {
+        foodCategory = 1
+    } if (choices[0] === "Asian") {
+        foodCategory = 2
     } if (choices[0] === "Sweet") {
-      foodCategory = 3
-    } if (choices[1] === "Mexican" ||choices[1] === "American" ||choices[1] === "Chinese" ||choices[1] === "Ice Cream") {
-      groupID = 0
-    } if (choices[1] === "Indian" ||choices[1] === "Italian" ||choices[1] === "Japanese" ||choices[1] === "Bakery") {
-      groupID = 1
-    } if (choices[1] === "Thai" ||choices[1] === "Jewish" ||choices[1] === "Vietnamese" ||choices[1] === "French") {
-      groupID = 2
+        foodCategory = 3
+    } if (choices[1] === "Mexican" || choices[1] === "American" || choices[1] === "Chinese" || choices[1] === "Ice Cream") {
+        groupID = 0
+    } if (choices[1] === "Indian" || choices[1] === "Italian" || choices[1] === "Japanese" || choices[1] === "Bakery") {
+        groupID = 1
+    } if (choices[1] === "Thai" || choices[1] === "Jewish" || choices[1] === "Vietnamese" || choices[1] === "French") {
+        groupID = 2
     } if (choices[2] === "Light") {
-      weightID = 1
+        weightID = 1
     }
     var finalChoice = foodCategories[foodCategory][groupID][weightID][Math.floor(Math.random() * foodCategories[foodCategory][groupID][weightID].length)];
     quizHeaderEl.textContent = finalChoice
     fetchRecipeFromEdamam(finalChoice);
     searchRestaurantsWithFoodItem(finalChoice);
-  }
+}
 
 function endQuiz(element) {
     console.log(element.textContent)
@@ -203,9 +208,11 @@ function endQuiz(element) {
     answer2El.setAttribute("style", "display: none;");
     answer3El.setAttribute("style", "display: none;");
     answer4El.setAttribute("style", "display: none;");
+    recipeEl.setAttribute("style", "display: block;");
+    restaurantEl.setAttribute("style", "display: block;");
     startQuizEl.setAttribute("style", "display: block");
     startQuizEl.textContent = "Restart"
-    startQuizEl.addEventListener("click", function() {
+    startQuizEl.addEventListener("click", function () {
         window.location.reload();
     });
 }
@@ -297,6 +304,18 @@ answer4El.addEventListener("click", function (event) {
 
 
     nextQuestion()
+})
+
+recipeEl.addEventListener("click", function (event) {
+    var element = event.target;
+    window.open(recipeURL)
+
+})
+
+restaurantEl.addEventListener("click", function (event) {
+    var element = event.target;
+
+
 })
 
 
