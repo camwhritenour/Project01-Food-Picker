@@ -7,7 +7,7 @@ function fetchRecipeFromEdamam(foodItem) {
         .then(data => {
             console.log(data);
 
-            const recipe = data.hits[0].recipe;
+            const recipe = data.hits[Math.floor(Math.random() * data.hits.length)].recipe;
             console.log('Recipe:', recipe);
             console.log(recipe.url);
             recipeURL = recipe.url;
