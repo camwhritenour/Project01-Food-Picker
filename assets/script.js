@@ -10,6 +10,8 @@ function renderHistory () {
     }
 }
 
+renderHistory();
+
 function fetchRecipeFromEdamam(foodItem) {
     const edamamKEY = "d1dff8cbcbfaa0cdfb00112c92e85cf8";
     const edamamID = "ea182cd5";
