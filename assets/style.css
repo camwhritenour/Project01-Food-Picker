@@ -37,6 +37,7 @@ body {
     background-image: url(https://coolwallpapers.me/picsup/3026732-egg_fish_food_japan_maki_rice_salmon_soy_sushi_tuna.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: black;
 }
 
 #survey-box {
@@ -44,9 +45,14 @@ body {
     border-style: hidden;
     border-color: var(--border-color1);
     border-width: 5px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    height: 30rem;
 }
 
 #qp-container {
+    width: 40rem;
+    margin-top: 5%;
     margin-bottom: 3%;
     padding-bottom: 1%;
     background: var(--bg-color);
@@ -57,30 +63,8 @@ body {
 
 }
 
-/* #start-quiz {
-    background-color: blue;
-    border-radius: 10px;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-} */
-
 #answer1, #answer2, #answer3, #answer4 {
-    /* background-color: blue;
-    border-radius: 10px;
-    color: white;
-    padding: 15px 32px;
-    margin-bottom: 20px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    justify-items: left; */
-    display: none;
-    
+    display: none;  
 }
 
 #answers {
