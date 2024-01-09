@@ -1,7 +1,6 @@
-const edamamKEY = "d1dff8cbcbfaa0cdfb00112c92e85cf8";
-const edamamID = "ea182cd5";
-
 function fetchRecipeFromEdamam(foodItem) {
+    const edamamKEY = "d1dff8cbcbfaa0cdfb00112c92e85cf8";
+    const edamamID = "ea182cd5";
     const edamamURL = `https://api.edamam.com/api/recipes/v2?type=public&app_id=` + edamamID + '&app_key=' + edamamKEY + '&q=' + foodItem;
     fetch(edamamURL)
         .then(response => response.json())
@@ -17,13 +16,16 @@ function searchRestaurantsWithFoodItem(foodItem) {
     const googleKEY = 'AIzaSyBvG7rlAIbTb10ErVbADiHj0rOEegaNxlQ';
     const googleURL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=` + foodItem + `+restaurants&key=` + googleKEY;
 
-    fetch(googleURL)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        const restaurants = data.results;
-        console.log('Restaurants:', restaurants);
+    fetch(googleURL, {
+        mode: "no-cors"
     })
+    .then(function (response){
+        return response.json()
+            .then(data => {
+            console.log(data);
+        });
+    })
+    
 }
 
 
@@ -310,5 +312,5 @@ var foodsArray = ['Taco', 'Burrito', 'Nachos', 'Fajitas', 'Quesadilla', 'Enchila
 quickBtn.addEventListener("click", function () {
     var random = (foodsArray[Math.floor(Math.random() * foodsArray.length)]);
     quickReturn.innerHTML = random;
-    // console.log(random);
+    console.log(random);
 });
