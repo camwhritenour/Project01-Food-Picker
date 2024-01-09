@@ -30,12 +30,12 @@ function fetchRecipeFromEdamam(foodItem) {
 }
 
 async function searchRestaurantsWithFoodItem(foodItem) {
-    const url = 'https://restaurants-near-me-usa.p.rapidapi.com/restaurants/location/state/TX/city/Houston/0';
+    const url = 'https://maps-data.p.rapidapi.com/searchmaps.php?query=' + foodItem + '&limit=50&country=us&lang=en&lat=29.749907&lng=-95.358421&offset=0&zoom=13';
     const options = {
         method: 'GET',
         headers: {
             'X-RapidAPI-Key': 'ebfd22540amsh9a7885ed62c5231p1044aajsn90187589f031',
-            'X-RapidAPI-Host': 'restaurants-near-me-usa.p.rapidapi.com'
+            'X-RapidAPI-Host': 'maps-data.p.rapidapi.com'
         }
     };
     
@@ -43,6 +43,8 @@ async function searchRestaurantsWithFoodItem(foodItem) {
         const response = await fetch(url, options);
         const result = await response.json();
         console.log(result);
+        restaurantURL = 'https://' + result.data[0].website;
+        console.log (result.data[0].website)
     } catch (error) {
         console.error(error);
     }
@@ -50,6 +52,7 @@ async function searchRestaurantsWithFoodItem(foodItem) {
 
 /* Element Selectors */
 var recipeURL = "";
+var restaurantURL = "";
 var surveyBoxEl = document.querySelector("#survey-box");
 var quizEl = document.querySelector("#survey");
 var startQuizEl = document.querySelector("#start-quiz");
@@ -327,12 +330,13 @@ answer4El.addEventListener("click", function (event) {
 
 recipeEl.addEventListener("click", function (event) {
     var element = event.target;
-    window.open(recipeURL)
+    window.open(recipeURL);
 
 })
 
 restaurantEl.addEventListener("click", function (event) {
     var element = event.target;
+    window.open(restaurantURL);
 
 
 })
