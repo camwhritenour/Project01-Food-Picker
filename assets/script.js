@@ -15,22 +15,24 @@ function fetchRecipeFromEdamam(foodItem) {
         })
 }
 
-function searchRestaurantsWithFoodItem(foodItem) {
-    const googleKEY = 'AIzaSyBvG7rlAIbTb10ErVbADiHj0rOEegaNxlQ';
-    const googleURL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=` + foodItem + `+restaurants&key=` + googleKEY;
-
-    fetch(googleURL, {
-        mode: "no-cors"
-    })
-        .then(function (response) {
-            return response.json()
-                .then(data => {
-                    console.log(data);
-                });
-        })
-
+async function searchRestaurantsWithFoodItem(foodItem) {
+    const url = 'https://restaurants-near-me-usa.p.rapidapi.com/restaurants/location/state/TX/city/Houston/0';
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': 'ebfd22540amsh9a7885ed62c5231p1044aajsn90187589f031',
+            'X-RapidAPI-Host': 'restaurants-near-me-usa.p.rapidapi.com'
+        }
+    };
+    
+    try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+    }
 }
-
 
 /* Element Selectors */
 var recipeURL = "";
