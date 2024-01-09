@@ -1,3 +1,15 @@
+var finalSelection = JSON.parse(localStorage.getItem("finalSelection")) || []
+
+function renderHistory () {
+    var recentlySearched = document.getElementById("recentlySearched")
+    recentlySearched.textContent = ""
+    for (i = 0; i < finalSelection.length; i++) {
+        var li = document.createElement("li")
+        li.textContent = finalSelection[i]
+        recentlySearched.appendChild(li)
+    }
+}
+
 function fetchRecipeFromEdamam(foodItem) {
     const edamamKEY = "d1dff8cbcbfaa0cdfb00112c92e85cf8";
     const edamamID = "ea182cd5";
@@ -197,6 +209,9 @@ function choiceDecipher() {
     }
     var finalChoice = foodCategories[foodCategory][groupID][weightID][Math.floor(Math.random() * foodCategories[foodCategory][groupID][weightID].length)];
     quizHeaderEl.textContent = finalChoice
+    finalSelection.push(finalChoice);
+    localStorage.setItem("finalSelection", JSON.stringify(finalSelection))
+    renderHistory();
     fetchRecipeFromEdamam(finalChoice);
     searchRestaurantsWithFoodItem(finalChoice);
 }
