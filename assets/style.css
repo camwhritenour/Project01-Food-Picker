@@ -63,8 +63,13 @@ body {
 
 }
 
-#answer1, #answer2, #answer3, #answer4, #recipe, #restaurant  {
+#answer1, #answer2, #answer3, #answer4  {
     display: none;  
+}
+
+#recipe, #restaurant {
+    display: none;
+    
 }
 
 #answers {
